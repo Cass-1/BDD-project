@@ -62,9 +62,9 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
     first_boolean_formula = ""
     for bit in first_binary_num:
         if int(bit) is 0:
-            first_boolean_formula += f" ~x{position} &"
+            first_boolean_formula += f" ~x_{position} &"
         elif int(bit) is 1:
-            first_boolean_formula += f" x{position} &"
+            first_boolean_formula += f" x_{position} &"
         else:
             print("Something has gone wrong")
         position += 1
@@ -75,17 +75,16 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
     second_boolean_formula = ""
     for bit in second_binary_num:
         if int(bit) is 0:
-            second_boolean_formula += f" ~y{position} &"
+            second_boolean_formula += f" ~y_{position} &"
         elif int(bit) is 1:
-            second_boolean_formula += f" y{position} &"
+            second_boolean_formula += f" y_{position} &"
         else:
             print("Something has gone wrong")
         position += 1
     second_boolean_formula = second_boolean_formula[:-1]
 
-    # put the two boolean formulas together
-    boolean_formula = first_boolean_formula + " & " + second_boolean_formula
-
+    boolean_formula = f"({first_boolean_formula} & {second_boolean_formula})"
+    print(expr(boolean_formula))
     return boolean_formula
 
 def edge_list_to_boolean_formula(list: List[Tuple[int,int]]):
@@ -99,4 +98,6 @@ def edge_list_to_boolean_formula(list: List[Tuple[int,int]]):
     
     # remove last (hanging) "|"
     boolean_formula = boolean_formula[:-1]
+    # print(boolean_formula)
+    # print(expr(boolean_formula))
     return expr(boolean_formula)
