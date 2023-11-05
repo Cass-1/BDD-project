@@ -31,3 +31,16 @@ def number_to_boolean_formula(num: int) -> str:
     # remove the last (hanging) ampersand and return
     boolean_formula = boolean_formula[:-1]
     return boolean_formula
+
+def list_to_boolean_formula(list):
+    """
+    Given a list of integers, return the boolean formula
+    (in expression form) for that list.
+    """
+    boolean_formula = ""
+    for num in list:
+        boolean_formula += number_to_boolean_formula(num) + "|"
+    
+    # remove last (hanging) "|"
+    boolean_formula = boolean_formula[:-1]
+    return expr(boolean_formula)
