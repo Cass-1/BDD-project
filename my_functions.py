@@ -14,6 +14,7 @@ def number_to_boolean_formula(num: int, var: str) -> str:
     
     # covert the base 10 number to five digit binary
     binary_num = f"{num:05b}"
+    # print(num)
     # print(binary_num)
 
     # loop through binary to create the boolean formula
@@ -21,7 +22,7 @@ def number_to_boolean_formula(num: int, var: str) -> str:
     position = 1
     for digit in binary_num:
         if int(digit) is 0:
-            #NOTE: adding "_" here makes the problem of y vars b4 x vars for the edges
+            #BUG: adding "_" here makes the problem of y vars b4 x vars for the edges
             boolean_formula += f" ~{var}{position} &"
         elif int(digit) is 1:
             boolean_formula += f" {var}{position} &"
@@ -85,7 +86,7 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
     second_boolean_formula = second_boolean_formula[:-1]
 
     boolean_formula = f"({first_boolean_formula} & {second_boolean_formula})"
-    print(expr(boolean_formula))
+    # print(expr(boolean_formula))
     return boolean_formula
 
 def edge_list_to_boolean_formula(list: List[Tuple[int,int]]):
