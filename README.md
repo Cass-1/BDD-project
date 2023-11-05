@@ -10,7 +10,7 @@ I use a virtual environment using python 3.7 (for pyeda compatibility), the pyed
 - Define the BDD variables needed
 - Define the sets for the even, prime, and edges
 - Get the BDDs for those sets
-- Do the 3.1 tests
+- Test the BBDs for the even, prime and edge sets
 - Compute RR2
-- Do the 3.2 tests
+- Test the BDD for RR2
 - Compute RRstar for RR2
