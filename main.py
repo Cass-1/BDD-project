@@ -17,3 +17,7 @@ even_BDD = expr2bdd(even_boolean_formula)
 # get the BDD for the set of prime numbers
 prime_boolean_formula = list_to_boolean_formula(prime)
 prime_BDD = expr2bdd(prime_boolean_formula)
+
+# get the BDD for the set of edges
+edge_boolean_formula = edge_list_to_boolean_formula(edges)
+edge_BDD = expr2bdd(edge_boolean_formula)
