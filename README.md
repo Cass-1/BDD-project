@@ -1,5 +1,8 @@
 # My BDD Project for CS 350
 
+## Project Overview
+Construct several BDDs using the pydea python library to learn about storing large graphs in memory.
+
 ## Project Outline
 
 ### Define the BDD variables needed
