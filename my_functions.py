@@ -21,6 +21,7 @@ def number_to_boolean_formula(num: int, var: str) -> str:
     position = 1
     for digit in binary_num:
         if int(digit) is 0:
+            #NOTE: adding "_" here makes the problem of y vars b4 x vars for the edges
             boolean_formula += f" ~{var}{position} &"
         elif int(digit) is 1:
             boolean_formula += f" {var}{position} &"
