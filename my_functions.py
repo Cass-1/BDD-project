@@ -90,7 +90,7 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
 
 def edge_list_to_boolean_formula(list: List[Tuple[int,int]]):
     """
-    Given a list of integers, return the boolean formula
+    Given a list of edges, return the boolean formula
     (in expression form) for that list.
     """
     boolean_formula = ""
