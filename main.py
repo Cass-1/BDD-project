@@ -1,7 +1,7 @@
 """
 The main program for my CS 350 BDD project
 """
-from functions import *
+from my_functions import *
 
 # even and prime arrays
 even = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
