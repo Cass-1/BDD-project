@@ -5,11 +5,6 @@ from graphviz import Source
 from my_functions import *
 
 # BDD vars
-#TODO: I dont understand this, i added them to cover my bases
-# x1, x2, x3, x4, x5 = bddvars('x', 5)
-# y1, y2, y3, y4, y5 = bddvars('y', 5)
-# x_1, x_2, x_3, x_4, x_5 = bddvars('x_', 5)
-# y_1, y_2, y_3, y_4, y_5 = bddvars('y_', 5)
 x_1 = exprvar('x_1')
 x_2 = exprvar('x_2')
 x_3 = exprvar('x_3')
