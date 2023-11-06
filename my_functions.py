@@ -64,9 +64,9 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
     first_boolean_formula = ""
     for bit in first_binary_num:
         if int(bit) is 0:
-            first_boolean_formula += f" ~x_{position} &"
+            first_boolean_formula += f" ~x{position} &"
         elif int(bit) is 1:
-            first_boolean_formula += f" x_{position} &"
+            first_boolean_formula += f" x{position} &"
         else:
             print("Something has gone wrong")
         position += 1
@@ -77,9 +77,9 @@ def edge_to_boolean_formula(tup: Tuple[int,int]) -> str:
     second_boolean_formula = ""
     for bit in second_binary_num:
         if int(bit) is 0:
-            second_boolean_formula += f" ~y_{position} &"
+            second_boolean_formula += f" ~y{position} &"
         elif int(bit) is 1:
-            second_boolean_formula += f" y_{position} &"
+            second_boolean_formula += f" y{position} &"
         else:
             print("Something has gone wrong")
         position += 1
