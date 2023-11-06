@@ -130,11 +130,6 @@ while True:
         # H is R* 
         break
 
-y1 = exprvar('y1')
-y2 = exprvar('y2')
-y3 = exprvar('y3')
-y4 = exprvar('y4')
-y5 = exprvar('y5')
 
 
 x1 = exprvar('x1')
@@ -142,11 +137,19 @@ x2 = exprvar('x2')
 x3 = exprvar('x3')
 x4 = exprvar('x4')
 x5 = exprvar('x5')
+
+y1 = exprvar('y1')
+y2 = exprvar('y2')
+y3 = exprvar('y3')
+y4 = exprvar('y4')
+y5 = exprvar('y5')
+
 z1 = exprvar('z1')
 z2 = exprvar('z2')
 z3 = exprvar('z3')
 z4 = exprvar('z4')
 z5 = exprvar('z5')
+
 RR2star = bdd2expr(H)
 PRIME = prime_boolean_formula
 EVEN = even_boolean_formula
