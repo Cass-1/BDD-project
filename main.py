@@ -102,30 +102,33 @@ test = RR2_expr.restrict({x1: 1, x2: 1, x3: 0, x4:1, x5:1, y1:0,y2:1,y3:0,y4:0,y
 print("RR2(27,9): " + str(test))
 
 # COMPUTE RR2* FOR RR2
-# R = RR2_expr
-# H = R
-# H_prime = None
-# while True:
-#     # print("h")
-#     H_prime = H
-#     # H_prime
-#     t1 = H.compose({y1:z1, y2:z2, y3:z3, y4:z4, y5:z5}) 
+x1, x2, x3, x4, x5 = bddvars('x', 5)
+y1, y2, y3, y4, y5 = bddvars('y', 5)
+z1, z2, z3, z4, z5 = bddvars('z', 5)
+RR2 = expr2bdd(RR2_expr)
+R = RR2
+H = R
+H_prime = None
+while True:
+    # print("h")
+    H_prime = H
+    # H_prime
+    t1 = H.compose({y1:z1, y2:z2, y3:z3, y4:z4, y5:z5}) 
 
-#     # R
-#     t2 = R.compose({x1:z1, x2:z2, x3:z3, x4:z4, x5:z5})
-#     # print("finished composing")
+    # R
+    t2 = R.compose({x1:z1, x2:z2, x3:z3, x4:z4, x5:z5})
+    # print("finished composing")
 
-#     # H_prime | H_prime o R
-#     t = t1 & t2
-#     # trans_close = trans_close.smoothing((z1, z2, z3, z4, z5))
-#     H = H_prime | t
-#     # print("finished logic")
-#     H = H.smoothing((z1, z2, z3, z4, z5))
+    # H_prime | H_prime o R
+    t = t1 & t2
+    # trans_close = trans_close.smoothing((z1, z2, z3, z4, z5))
+    H = H_prime | t
+    # print("finished logic")
+    H = H.smoothing((z1, z2, z3, z4, z5))
 
-#     if H.equivalent(H_prime):
-#         # H is R* 
-#         break
+    if H.equivalent(H_prime):
+        # H is R* 
+        break
 
-# RR2star_expr = H
-# RR2star_BDD = expr2bdd(H)
-RR2star = transitive_closure(RR2_expr)
+RR2star_expr = H
+RR2star_BDD = expr2bdd(H)
