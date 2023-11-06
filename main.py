@@ -35,6 +35,9 @@ y_3 = exprvar('y_3')
 y_4 = exprvar('y_4')
 y_5 = exprvar('y_5')
 
+# x_1, x_2, x_3, x_4, x_5 = bddvars('x',5)
+# y_1, y_2, y_3, y_4, y_5 = bddvars('y',5)
+
 # DEFINING SETS
 # even and prime sets
 even = [i for i in range(32) if i%2 is 0]
@@ -117,4 +120,30 @@ print("RR2(27,6): " + str(test))
 test = RR2_expr.restrict({x_1: 1, x_2: 1, x_3: 0, x_4:1, x_5:1, y_1:0,y_2:1,y_3:0,y_4:0,y_5:1})
 print("RR2(27,9): " + str(test))
 
-# COMPUTE RRstar FOR RR2
+# COMPUTE RR2* FOR RR2
+R = RR2_expr
+H = R
+H_prime = None
+while True:
+    # print("h")
+    H_prime = H
+    # H_prime
+    t1 = H.compose({y_1:z_1, y_2:z_2, y_3:z_3, y_4:z_4, y_5:z_5}) 
+
+    # R
+    t2 = R.compose({x_1:z_1, x_2:z_2, x_3:z_3, x_4:z_4, x_5:z_5})
+    # print("finished composing")
+
+    # H_prime | H_prime o R
+    t = t1 & t2
+    # trans_close = trans_close.smoothing((z_1, z_2, z_3, z_4, z_5))
+    H = H_prime | t
+    # print("finished logic")
+    H = H.smoothing((z_1, z_2, z_3, z_4, z_5))
+
+    if H.equivalent(H_prime):
+        # H is R* 
+        break
+
+RR2star_expr = H
+RR2star_BDD = expr2bdd(H)
