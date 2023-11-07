@@ -40,9 +40,7 @@ prime_BDD = expr2bdd(prime_boolean_formula)
 RR_expr = edge_list_to_boolean_formula(edges)
 RR_BDD = expr2bdd(RR_expr)
 
-# GENERATE A PDF OF A BDD
-# gv = Source(prime_BDD.to_dot())
-# gv.render("prime", view=True)
+
 
 # 3.1 TESTS
 # test: RR(27,3)
@@ -129,7 +127,10 @@ while True:
     if H.equivalent(H_prime):
         # H is R* 
         break
-
+# GENERATE A PDF OF A BDD
+# h_test = H.smoothing(y1).smoothing(y2).smoothing(y3).smoothing(y4).smoothing(y5)
+# gv = Source(h_test.to_dot())
+# gv.render("h_test", view=True)
 
 
 x1 = exprvar('x1')
@@ -144,24 +145,22 @@ y3 = exprvar('y3')
 y4 = exprvar('y4')
 y5 = exprvar('y5')
 
-z1 = exprvar('z1')
-z2 = exprvar('z2')
-z3 = exprvar('z3')
-z4 = exprvar('z4')
-z5 = exprvar('z5')
-
 RR2star = bdd2expr(H)
 PRIME = prime_boolean_formula
 EVEN = even_boolean_formula
+# RR2star = H 
+# PRIME = prime_BDD
+# EVEN = even_BDD
 
 banana = EVEN & RR2star
-apple = banana.smoothing((y1,y2,y3,y4,y5))
+apple = banana.smoothing(y1).smoothing(y2).smoothing(y3).smoothing(y4).smoothing(y5)
 
-fish = (not PRIME) or apple
-ans = not (~fish).smoothing((x1,x2,x3,x4,x5))
-print(ans)
-# ans = fish.smoothing((x1,x2,x3,x4,x5))
-# ans = not((fish).compose({x1:y1,x2:y2,x3:y3,x4:y4,x5:y5}))
-# print(bdd2expr(banana))
-# print(ans)
+fish = ((~PRIME) | apple)
+ans = ~((~fish).smoothing(x1).smoothing(x2).smoothing(x3).smoothing(x4).smoothing(x5))
+# ans = expr2bdd(ans)
+
+if ans.equivalent(True):
+    print(f"Statement A is {ans.equivalent(True)}")
+else:
+    print(f"Statement A is {ans.equivalent(True)}")
 
