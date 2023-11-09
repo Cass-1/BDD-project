@@ -1,7 +1,7 @@
 """
 The main program for my CS 350 BDD project
 """
-from graphviz import Source
+# from graphviz import Source
 from my_functions import *
 
 # BDD VARS
